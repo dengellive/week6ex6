@@ -11,6 +11,8 @@ pipeline {
 		 }
 	      }
                steps {
+		    sh "echo env.GIT_BRANCH"
+		    sh "echo env.GIT_LOCAL_BRANCH"
 		    sh "chmod +x gradlew"
                     sh "./gradlew compileJava"
                }
