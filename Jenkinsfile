@@ -11,6 +11,7 @@ pipeline {
 		 }
 	      }
                steps {
+		    echo "Git Branch:"
 		    echo env.GIT_BRANCH
 		    echo env.GIT_LOCAL_BRANCH
 		    sh "chmod +x gradlew"
