@@ -61,18 +61,5 @@ pipeline {
                     sh "./gradlew build"
                }
           }
-
-          stage("Docker build") {
- 	      when {
-		 expression {
-			  return env.GIT_BRANCH != "origin/playground"               
-		 }
-	      }
-               steps {
-                    sh "docker build -t leszko/calculator:${BUILD_TIMESTAMP} ."
-               }
-          }
-
-          
      }
 }
