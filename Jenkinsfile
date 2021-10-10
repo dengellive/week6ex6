@@ -11,6 +11,7 @@ pipeline {
 		 }
 	      }
                steps {
+		    sh "chmod +x gradlew"
                     sh "./gradlew compileJava"
                }
           }
@@ -22,7 +23,7 @@ pipeline {
 		 }
 	      }
 	       steps {
-                    sh "./gradlew test"
+		    sh "./gradlew test"
                }
           }
           stage("Code coverage") {
