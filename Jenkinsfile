@@ -21,8 +21,7 @@ pipeline {
           stage("Unit test") {
 	      when {
 		 expression {
-			  return env.GIT_BRANCH == "origin/feature"
-			  return env.GIT_BRANCH == "origin/main"
+			  return env.GIT_BRANCH != "origin/playground"
 		 }
 	      }
 	       steps {
@@ -43,8 +42,7 @@ pipeline {
           stage("Static code analysis") {
 	      when {
 		 expression {
-			  return env.GIT_BRANCH == "origin/feature"               
-		   	  return env.GIT_BRANCH == "origin/main" 		  
+			  return env.GIT_BRANCH != "origin/playground"		  
 		 }
 	      }
                steps {
