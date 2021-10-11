@@ -11,7 +11,7 @@ pipeline {
 		 }
 	      }
                steps {
-		    echo "Git Branch:"
+		    echo "Git Branch :"
 		    echo env.GIT_BRANCH
 		    echo env.GIT_LOCAL_BRANCH
 		    sh "chmod +x gradlew"
@@ -21,8 +21,7 @@ pipeline {
           stage("Unit test") {
 	      when {
 		 expression {
-			  return env.GIT_BRANCH == "origin/feature"
-			  return env.GIT_BRANCH != "origin/playground"             
+			  return env.GIT_BRANCH != "origin/playground"
 		 }
 	      }
 	       steps {
@@ -33,7 +32,6 @@ pipeline {
                when {
 		  expression {
 			   return env.GIT_BRANCH == "origin/main"
-			   return env.GIT_BRANCH != "origin/playground" 
 		  }
 	       }
 	       steps {
@@ -44,8 +42,7 @@ pipeline {
           stage("Static code analysis") {
 	      when {
 		 expression {
-			  return env.GIT_BRANCH == "origin/feature"               
-			  return env.GIT_BRANCH != "origin/playground"
+			  return env.GIT_BRANCH != "origin/playground"		  
 		 }
 	      }
                steps {
